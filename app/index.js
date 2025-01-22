@@ -7,12 +7,11 @@ const router = require('./routes');
 const app = express();
 app.use(cors());
 
-// Utilisez les variables d'environnement avec une valeur par défaut
-const port = process.env.PORT || 3000;
-const baseUrl = process.env.BASE_URL || `http://localhost:${port}`;
-
 app.use(router);
 
-app.listen(port, () => {
-  console.log(`Magic happens on ${baseUrl}`);
-});
+// Utilisez les variables d'environnement avec une valeur par défaut
+const baseUrl = process.env.BASE_URL || 'http://localhost:3000';
+console.log(`Magic happens on ${baseUrl}`);
+
+// Exporter comme fonction serverless
+module.exports = app;
